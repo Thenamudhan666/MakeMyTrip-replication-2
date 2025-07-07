@@ -1,0 +1,74 @@
+[
+  {
+    "id": 0,
+    "movie_name": "The Flash",
+    "price": "12.99",
+    "rating": "PG-13",
+    "description": "Barry Allen uses his super speed to change the past, but his attempt to save his family creates a world without superheroes, forcing him to race for his life.",
+    "stars": 3.5,
+    "image": "/images/flash.jpg"
+  },
+  {
+    "id": 1,
+    "movie_name": "The Marvels",
+    "price": "14.99",
+    "rating": "PG-13",
+    "description": "Carol Danvers, Kamala Khan, and Monica Rambeau swap places and must learn to work together to save the universe from a powerful new enemy.",
+    "stars": 3.8,
+    "image": "the_marvels.jpg"
+  },
+  {
+    "id": 2,
+    "movie_name": "Haikyuu: Battle of the Garbage Dumpster",
+    "price": "9.99",
+    "rating": "PG",
+    "description": "A thrilling showdown between Karasuno and Nekoma in one of the most anticipated volleyball matches in anime history.",
+    "stars": 4.6,
+    "image": "haikyuu_battle.jpg"
+  },
+  {
+    "id": 3,
+    "movie_name": "Demon Slayer: Muzan Castle",
+    "price": "11.99",
+    "rating": "R",
+    "description": "Tanjiro and his companions confront Muzan Kibutsuji in his mysterious castle in a battle filled with breathtaking animation and emotional depth.",
+    "stars": 4.7,
+    "image": "demon_slayer_muzan.jpg"
+  },
+  {
+    "id": 4,
+    "movie_name": "Violet Evergarden",
+    "price": "10.99",
+    "rating": "PG",
+    "description": "Violet Evergarden embarks on a journey of self-discovery and healing through the letters she writes for others.",
+    "stars": 4.9,
+    "image": "violet_evergarden.jpg"
+  },
+  {
+    "id": 5,
+    "movie_name": "Interstellar",
+    "price": "13.99",
+    "rating": "PG-13",
+    "description": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity’s survival.",
+    "stars": 4.8,
+    "image": "interstellar.jpg"
+  },
+  {
+    "id": 6,
+    "movie_name": "G-Storm",
+    "price": "8.99",
+    "rating": "R",
+    "description": "A corruption investigator takes on a powerful criminal syndicate with connections throughout the government.",
+    "stars": 3.2,
+    "image": "g_storm.jpg"
+  },
+  {
+    "id": 7,
+    "movie_name": "Your Name",
+    "price": "9.49",
+    "rating": "PG",
+    "description": "Two teenagers share a profound, magical connection upon discovering they are swapping bodies despite never having met.",
+    "stars": 4.9,
+    "image": "your_name.jpg"
+  }
+]

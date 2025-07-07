@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Road Show</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .bg-gradient-text {
+      background: linear-gradient(to right, #60a5fa, #a855f7, #22d3ee);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .bg-gradient-recommended {
+      background: linear-gradient(to right, #60a5fa, #a855f7);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900/20 to-purple-900/20 text-white">
+
+  <!-- Header -->
+  <header class="bg-gray-900 border-b border-gray-800 sticky top-0 z-50 shadow-md">
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center">
+        <img src="internship2/images/logo.png" alt="Road Show Logo" class="w-10 h-10 mr-3 rounded shadow" />
+        <h1 class="text-2xl font-bold bg-gradient-text" style="align-items: center;">Road Show</h1>
+      </div>
+      <div class="flex items-center gap-4">
+        <input type="text" placeholder="Search movies..." class="px-4 py-2 w-64 bg-gray-800 border border-gray-700 text-sm text-white placeholder-gray-400 rounded-md" />
+        <button class="text-sm font-semibold px-4 py-2 bg-white text-black rounded-md hover:bg-gray-200">Sign In</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Categories -->
+  <section class="py-12">
+    <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="bg-gray-800/60 p-6 rounded-lg text-center shadow hover:scale-105 transition">
+        <div class="text-4xl mb-2">🎭</div>
+        <h3 class="text-lg font-semibold">Theatre</h3>
+      </div>
+      <div class="bg-gray-800/60 p-6 rounded-lg text-center shadow hover:scale-105 transition">
+        <div class="text-4xl mb-2">🎬</div>
+        <h3 class="text-lg font-semibold">Movies</h3>
+      </div>
+      <div class="bg-gray-800/60 p-6 rounded-lg text-center shadow hover:scale-105 transition">
+        <div class="text-4xl mb-2">🏷️</div>
+        <h3 class="text-lg font-semibold">Offers</h3>
+      </div>
+      <div class="bg-gray-800/60 p-6 rounded-lg text-center shadow hover:scale-105 transition">
+        <div class="text-4xl mb-2">❤️</div>
+        <h3 class="text-lg font-semibold">Wishlist</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recommended Movies -->
+  <section class="py-12 bg-gray-900/30">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-extrabold text-center mb-10 bg-gradient-recommended">Recommended Movies</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {%MOVIE_CARDS%}
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 text-center py-6 mt-12">
+    © 2025 Road Show. Your gateway to entertainment.
+  </footer>
+</body>
+</html>

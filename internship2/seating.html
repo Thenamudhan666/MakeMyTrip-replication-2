@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Select Seats</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .seat-option {
+      @apply w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center text-sm font-semibold text-gray-600 cursor-pointer transition;
+    }
+    .seat-option:hover {
+      @apply border-pink-400 text-pink-500;
+    }
+    .seat-option.selected {
+      @apply bg-pink-500 text-white border-pink-500;
+    }
+  </style>
+</head>
+<body class="bg-zinc-900 flex items-center justify-center min-h-screen p-4">
+
+  <!-- Modal -->
+  <div class="bg-white max-w-md w-full rounded-2xl shadow-2xl p-8 relative">
+
+    <!-- Close Button -->
+    <button onclick="goBackToViewing()" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-2xl font-bold">&times;</button>
+
+    <!-- Title -->
+    <h2 class="text-center text-xl font-semibold text-gray-800 mb-6">How Many Seats?</h2>
+
+    <!-- Vehicle Illustration -->
+    <div class="flex justify-center mb-6">
+      <div class="relative w-24 h-16">
+        <div class="absolute top-0 left-0 w-full h-full rounded-xl bg-gradient-to-r from-yellow-400 to-orange-300"></div>
+        <div class="absolute bottom-0 left-[15%] w-5 h-5 bg-teal-500 rounded-full shadow-lg"></div>
+        <div class="absolute bottom-0 left-[60%] w-5 h-5 bg-teal-500 rounded-full shadow-lg"></div>
+        <div class="absolute top-[-6px] right-[-6px] w-3 h-3 bg-yellow-400 rounded-full"></div>
+      </div>
+    </div>
+
+    <!-- Seat Options -->
+    <div id="seatContainer" class="flex flex-wrap justify-center gap-3 mb-6">
+      <!-- Seat buttons will be injected here -->
+    </div>
+
+    <!-- Pricing Info -->
+    <div class="text-center mb-6">
+      <div class="text-sm text-gray-500 font-medium">FIRST CLASS</div>
+      <div class="text-lg font-semibold text-gray-800" id="price">Rs. {%PRICE%}</div>
+      <div class="text-sm text-teal-600 font-semibold">Available</div>
+    </div>
+
+    <!-- Select Button -->
+    <button onclick="selectSeats()" class="w-full bg-pink-500 hover:bg-pink-600 text-white text-sm font-bold py-3 rounded-xl uppercase tracking-wider">
+      Select Seats
+    </button>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    let selectedSeats = 2;
+    const basePrice = parseFloat("{%PRICE%}");
+
+    function updatePriceDisplay() {
+      const total = Math.round(basePrice * selectedSeats);
+      document.getElementById('price').textContent = `Rs. ${total}`;
+    }
+
+    function renderSeatOptions() {
+      const seatContainer = document.getElementById('seatContainer');
+      seatContainer.innerHTML = ''; // Clear previous if re-rendered
+      for (let i = 1; i <= 10; i++) {
+        const div = document.createElement('div');
+        div.className = 'seat-option' + (i === selectedSeats ? ' selected' : '');
+        div.dataset.seats = i;
+        div.textContent = i;
+        div.addEventListener('click', function () {
+          selectedSeats = i;
+          document.querySelectorAll('.seat-option').forEach(btn => btn.classList.remove('selected'));
+          this.classList.add('selected');
+          updatePriceDisplay();
+        });
+        seatContainer.appendChild(div);
+      }
+    }
+
+    function selectSeats() {
+      const total = Math.round(basePrice * selectedSeats);
+      alert(`You selected ${selectedSeats} seat(s). Total = Rs. ${total}`);
+    }
+
+    function goBackToViewing() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id');
+      if (id) {
+        window.location.href = `/viewing?id=${id}`;
+      } else {
+        window.location.href = '/overview';
+      }
+    }
+
+    // Initialize
+    renderSeatOptions();
+    updatePriceDisplay();
+  </script>
+</body>
+</html>

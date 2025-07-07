@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Viewing Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .bg-gradient-text {
+      background: linear-gradient(to right, #60a5fa, #a855f7, #22d3ee);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-zinc-900 min-h-screen text-white">
+
+  <!-- Header Nav -->
+  <header class="bg-gray-900 border-b border-gray-800 sticky top-0 z-50 shadow-md">
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <img src="internship2/images/logo.png" alt="Logo" class="w-10 h-10 rounded shadow" />
+        <h1 class="text-2xl font-bold bg-gradient-text">Road Show</h1>
+        <button onclick="goHome()" class="text-sm px-3 py-2 bg-white text-black rounded-md hover:bg-gray-200 ml-4">Home</button>
+      </div>
+      <div class="relative">
+        <button onclick="toggleSearch()" class="text-white text-lg" aria-label="Search">🔍</button>
+        <input type="text" id="searchInput" placeholder="Search..." class="absolute right-0 mt-2 w-64 px-4 py-2 bg-gray-800 border border-gray-700 rounded-md text-sm text-white placeholder-gray-400 hidden transition duration-300" />
+      </div>
+    </div>
+  </header>
+
+  <!-- Content Area -->
+  <main class="p-6 max-w-3xl mx-auto">
+    <h2 class="text-3xl font-bold mb-4">{%movie_name%}</h2>
+    <img src="{%image%}" alt="{%movie_name%}" class="w-full h-96 object-cover rounded-lg mb-4" />
+    <p class="text-lg text-gray-300 mb-4">{%DESCRIPTION%}</p>
+    <div class="flex justify-between items-center text-sm text-gray-400">
+      <span>Rating: {%rating%}</span>
+      <span>Stars: {%stars%} ⭐</span>
+      <span>Price: Rs. {%PRICE%}</span>
+    </div>
+    <div class="mt-6 text-right">
+      <a href="/seating?id={%ID%}" class="bg-pink-500 hover:bg-pink-600 text-white font-semibold px-6 py-3 rounded-lg">Select Seats</a>
+    </div>
+  </main>
+
+  <script>
+    function goHome() {
+      window.location.href = '/overview';
+    }
+
+    function toggleSearch() {
+      const input = document.getElementById('searchInput');
+      input.classList.toggle('hidden');
+      if (!input.classList.contains('hidden')) {
+        input.focus();
+      }
+    }
+  </script>
+
+</body>
+</html>
